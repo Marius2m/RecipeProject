@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +7,6 @@ import {Component, ElementRef, EventEmitter, Output, ViewChild} from "@angular/c
 
 export class HeaderComponent{
   @Output() tabClicked = new EventEmitter<string>();
-
-  @ViewChild('recipeOption') recipeIsClicked: ElementRef;
-
 
   onRecipeClicked(){
     this.tabClicked.emit('recipe');
