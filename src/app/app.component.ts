@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RecipeProject';
+  currentTab = 'recipe';
+
+  onNavigate(tabSelected: string){
+    this.currentTab = tabSelected;
+  }
 }
