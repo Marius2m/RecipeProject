@@ -1,5 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Recipe} from "../recipe.model";
+import {RecipesService} from "../recipes.service";
+import {RECIPE_SERVICE} from "../IRecipeService";
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,19 +9,13 @@ import {Recipe} from "../recipe.model";
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [
-    new Recipe("Test Recipe", "Test Description", "https://blog.bulletproof.com/wp-content/uploads/2019/01/54-of-the-Best-Whole30-Recipes-on-the-Internet-_header-752x401.jpg"),
-    new Recipe("Test Recipe 2", "Test Description 2", "https://blog.bulletproof.com/wp-content/uploads/2019/01/54-of-the-Best-Whole30-Recipes-on-the-Internet-_header-752x401.jpg")
-  ];
-  @Output() recipesWasSelected = new EventEmitter<Recipe>();
 
+  recipes: Recipe[];
 
-  constructor() { }
+  constructor(@Inject(RECIPE_SERVICE) private recipeService: RecipesService) { }
 
   ngOnInit() {
+    this.recipes = this.recipeService.getRecipes();
   }
 
-  onRecipeSelected(recipe: Recipe){
-    this.recipesWasSelected.emit(recipe);
-  }
 }

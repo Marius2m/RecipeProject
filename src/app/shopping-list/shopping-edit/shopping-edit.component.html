@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form
+    (ngSubmit)="onAddClicked(amountInput)">
       <div class="col-sm-4 form-group">
         <label for="name">Name</label>
         <input
@@ -21,10 +22,10 @@
         <div class="col-xs-12">
           <button
             class="btn btn-success"
-            type="submit"
-            (click)="onAddClicked(amountInput)">Add</button>
-          <button class="btn btn-danger" type="buttom">Delete</button>
-          <button class="btn btn-primary" type="buttom">Clear</button>
+            type="submit">
+            Add</button>
+          <button class="btn btn-danger" type="button">Delete</button>
+          <button class="btn btn-primary" type="button">Clear</button>
         </div>
       </div>
     </form>
