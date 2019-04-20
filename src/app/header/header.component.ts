@@ -6,16 +6,16 @@ import {Component, EventEmitter, Output} from "@angular/core";
 })
 
 export class HeaderComponent{
-  @Output() tabClicked = new EventEmitter<string>();
-
-  onRecipeClicked(){
-    this.tabClicked.emit('recipe');
-    console.log("recipe");
-  }
-
-  onShoppingClicked(){
-    this.tabClicked.emit('shopping-list');
-    console.log("shop");
-  }
+  // @Output() tabClicked = new EventEmitter<string>();
+  //
+  // onRecipeClicked(){
+  //   this.tabClicked.emit('recipe');
+  //   console.log("recipe");
+  // }
+  //
+  // onShoppingClicked(){
+  //   this.tabClicked.emit('shopping-list');
+  //   console.log("shop");
+  // }
 
 }

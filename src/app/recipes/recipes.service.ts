@@ -40,6 +40,10 @@ export class RecipesService implements IRecipeService {
     this.shoppinglistService.addIngredients(ingredients);
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
 }
 
 export const RecipesServiceProvider: Provider = {
