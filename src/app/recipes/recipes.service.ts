@@ -3,9 +3,11 @@ import {IRecipeService, RECIPE_SERVICE} from "./IRecipeService";
 import {Injectable, Provider} from "@angular/core";
 import {Ingredient} from "../shared/Ingredient.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
+import {Subject} from "rxjs";
 
 @Injectable()
 export class RecipesService implements IRecipeService {
+  recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -24,7 +26,6 @@ export class RecipesService implements IRecipeService {
       [
         new Ingredient('tomatoes',4),
         new Ingredient('eggs', 2),
-        new Ingredient('carrot', 3),
       ]
     ),
   ];
@@ -41,6 +42,16 @@ export class RecipesService implements IRecipeService {
 
   getRecipe(index: number) {
     return this.recipes[index];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
 }
