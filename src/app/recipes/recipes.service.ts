@@ -54,6 +54,10 @@ export class RecipesService implements IRecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
 
 export const RecipesServiceProvider: Provider = {

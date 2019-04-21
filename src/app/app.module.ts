@@ -15,6 +15,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
  import {RouterModule, Routes} from "@angular/router";
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+ import {RecipesServiceProvider} from "./recipes/recipes.service";
 
  const appRouter: Routes = [
    {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -48,7 +49,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     ReactiveFormsModule,
     RouterModule.forRoot(appRouter),
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipesServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
